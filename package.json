@@ -1,0 +1,21 @@
+{
+  "name": "netjs_practice_simple_restaurant",
+  "version": "1.0.0",
+  "description": "Simple Restaurant Website using Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "restaurant",
+    "javascript"
+  ],
+  "author": "haiqal",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
