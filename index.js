@@ -1,18 +1,40 @@
 
-const express = require("express");
-const app = express();
+// GET ALL CATEGORIES
+exports.getAllCategories = (req, res) => {
+    res.status(200).json({
+        status: "success",
+        data: [
+            {
+                id: 1,
+                name: "Appetizers"
+            },
+            {
+                id: 2,
+                name: "Main Course"
+            }
+        ]
+    });
+};
 
-const categoriesRouter = require("./routes/categories");
+// STORE CATEGORY
+exports.storeCategory = (req, res) => {
+    const name = req.body.name;
+    const description = req.body.description;
 
-// Middleware
-app.use(express.json());
+    // Validasi data
+    if (!name || !description) {
+        return res.status(400).json({
+            status: "failed",
+            message: "Name and description are required"
+        });
+    }
 
-// Routes
-app.use("/categories", categoriesRouter);
-
-// Server
-const PORT = 3000;
-
-app.listen(PORT, () => {
-    console.log(`Server berjalan di port ${PORT}`);
-});
+    return res.status(201).json({
+        status: "success",
+        message: "Category created successfully",
+        data: {
+            name: name,
+            description: description
+        }
+    });
+};
